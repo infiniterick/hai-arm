@@ -1,0 +1,4 @@
+#!/bin/sh
+xhost +
+sudo docker run --gpus all -it --shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 --name hai --restart unless-stopped -v /nvme/data:/nvme/data -v /nvme/code:/nvme/code -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY -w /nvme/code hai-arm:latest
+
